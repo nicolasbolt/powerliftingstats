@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+            <div class="card col m-2">
+            <div class="card-body text-center">
+                <h3 class="card-title">More Data on the {{ 93 }} kg Weight Class</h3>
+                <p class="text-center">These Graphs Show the Total Number of Times a Certain Weight has Been Lifted In The Same Federation In a Raw SBD Event</p>
+            </div>
+            </div>
+        </div>
+<div class="row justify-content-center">
+            <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+            <div class="card-body">
+                <h4 class="card-title">Squat</h4>
+                <canvas id="squat" width="100" height="100"></canvas>
+                </div>
+                </div>
+            <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+                <div class="card-body">
+                <h4 class="card-title">Bench</h4>
+                <canvas id="bench" width="100" height="100"></canvas>
+                </div>
+                </div>
+            <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+                <div class="card-body">
+                <h4 class="card-title">Deadlift</h4>
+                <canvas id="deadlift" width="100" height="100"></canvas>
+        </div>
+</div>
+
+<script>
+	let squat = document.getElementById('squat').getContext('2d');
+	let sChart = new Chart(squat, {
+		type: 'bar',
+		data: {
+			labels: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+			datasets:[{
+				label: 'Total Number',
+				data:[{{ s_300 }}, {{ s_400 }}, {{ s_500 }} ,{{ s_600 }}, {{ s_700 }}, {{ s_800 }}, {{ s_900 }}, {{ s_1000  }}],
+				backgroundColor: ['rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6'],
+			}],
+		},
+		options: {}
+	});
+
+	let bench = document.getElementById('bench').getContext('2d');
+	let bChart = new Chart(bench, {
+		type: 'bar',
+		data: {
+			labels: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+			datasets:[{
+				label: 'Total Number',
+				data:[{{ b_300 }}, {{ b_400 }} ,{{ b_500 }}, {{ b_600 }}, {{ b_700 }}],
+				backgroundColor: ['rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6'],
+			}],
+		},
+		options: {}
+	});
+
+	let deadlift = document.getElementById('deadlift').getContext('2d');
+	let dChart = new Chart(deadlift, {
+		type: 'bar',
+		data: {
+			labels: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+			datasets:[{
+				label: 'Total Number',
+				data:[{{ d_300 }}, {{ d_400 }}, {{ d_500 }} ,{{ d_600 }}, {{ d_700 }}, {{ d_800 }}, {{ d_900 }}, {{ d_1000  }}],
+				backgroundColor: ['rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6'],
+			}],
+		},
+		options: {}
+	});	
+</script>
+{% endblock content %}

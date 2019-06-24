@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class='row'>
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mt-3">
+		<div class="border-bottom">
+			<h4>Instructions</h4>
+		</div>
+	<div class="pt-4">
+		<p class="font-weight-bold">Customized Reports:</p>
+		<p>1. Enter the full name of a lifter in the OpenPowerlifting database (Must be the exact spelling as what is in the database)</p>
+		<p>2. Pick one of the federations available that the athlete has competed in</p>
+		<p>3. Enter the weight class of the lifter in kilograms.  Enter just the number and nothing else.  For SHW classes enter the highest weight class with a + (example: 120+) </p>
+		<p class="font-weight-bold pt-2">General Reports:</p>
+		<p>Pick either one of the weight classes or one of the federations to generate the report</p>
+		<p class="font-weight-bold pt-2">Compare Lifters:</p>
+		<p>Enter two names of two lifters in the database (Must be the exact spelling as what is in the database)</p>
+		<p>This will generate a report using the highest numbers from each lifter regardless of weight class or federation</p>
+	</div>
+	</div>
+</div>
+
+<div class='row'>
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 mt-3">
+		<div class="border-bottom">
+			<h4>Examples</h4>
+		</div>
+	<div class="pt-4">
+		<div class="pb-3">
+			<p>Name: Nicolas Bolt</p>
+			<p>Federation: USAPL</p>
+			<p>Weight Class: 93</p>
+		</div>
+		<div class="pb-3">
+			<p>Name: Joe Sullivan</p>
+			<p>Federation: USPA</p>
+			<p>Weight Class: 100</p>
+		</div>
+		<div class="pb-3">
+			<p>Name: Steve Gentili</p>
+			<p>Federation: USPA</p>
+			<p>Weight Class: 140</p> 
+		</div>
+	</div>
+	</div>
+</div>
+{% endblock content %}

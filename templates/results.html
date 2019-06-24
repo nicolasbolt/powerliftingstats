@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+{% block content %}
+      <div class="row justify-content-center">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <h3 class="card-title">Lifter Search Results</h3>
+            <h5>Information Entered:</h5>
+            <p>Name: {{ name }}</p>
+            <p>Federation: {{ fed }}</p>
+            <p>Weight Class: {{ wc }} kg</p>
+        </div>
+        </div>
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <h3 class="card-title">Best Meet Search Results</h3>
+            <h5>Data on Lifter:</h5>
+            <p>Squat: {{ max_s }} kg</p>
+            <p>Bench: {{ max_b }} kg</p>
+            <p>Deadlift: {{ max_d }} kg</p>
+          </div>
+        </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="card col-11 m-2">
+            <div class="card-body text-center">
+                <h3 class="card-title">How Does {{ name }} Compare to Everyone Else?</h3>
+                <p class="text-center">Percent of Lifters Who Have Lifted More or Less Weight In The Same Federation and Weight Class</p>
+            </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="card col-lg-3 col-md-12 col-sm-12 col-xs-12 m-2">
+            <div class="card-body">
+                <h4 class="card-title">Squat</h4>
+                <canvas id="sChart" width="100" height="100"></canvas>
+                </div>
+                </div>
+            <div class="card col-lg-3 col-md-12 col-sm-12 col-xs-12 m-2">
+                <div class="card-body">
+                <h4 class="card-title">Bench</h4>
+                <canvas id="bChart" width="100" height="100"></canvas>
+                </div>
+                </div>
+            <div class="card col-lg-3 col-md-12 col-sm-12 col-xs-12 m-2">
+                <div class="card-body">
+                <h4 class="card-title">Deadlift</h4>
+                <canvas id="dChart" width="100" height="100"></canvas>
+        </div>
+        </div>
+        </div>
+        <div class='row justify-content-center'>
+        <div class='card col-11 m-2'>
+        <div class='card-body text-center'>
+            <div id="submit">
+                <a class="btn btn-outline-dark" href="weightclass.html" onclick="loading()">Click Here to See More Data on the {{ wc }} kg Weight Class</a>
+            </div>
+            <div id="loading" class="d-none">
+                <button type="submit" class="btn btn-outline-dark" disabled>
+                <span class="spinner-border spinner-border-sm"></span> Loading...
+              </button>
+            </div>
+      </div>
+    </div>
+    </div>
+    </div>
+<script>
+    let sChart = document.getElementById('sChart').getContext('2d');
+
+    let squatChart = new Chart(sChart, {
+        type: 'pie',
+        data: {
+            labels: ['More', 'Less'],
+            datasets:[{
+                label: 'Weight',
+                data:[{{ squat_percent }}, {{ squat_vs_ee }}],
+                backgroundColor: ['rgba(201, 42, 42, 0.6)', 'rgba(20, 20, 223, 0.6)'],
+            }],
+        },
+        options: {}
+    });
+
+    let bChart = document.getElementById('bChart').getContext('2d');
+
+    let benchChart = new Chart(bChart, {
+        type: 'pie',
+        data: {
+            labels: ['More', 'Less'],
+            datasets:[{
+                label: 'Weight',
+                data:[{{ bench_percent }}, {{ bench_vs_ee }}],
+                backgroundColor: ['rgba(201, 42, 42, 0.6)', 'rgba(20, 20, 223, 0.6)'],
+            }],
+        },
+        options: {}
+    });
+
+    let dChart = document.getElementById('dChart').getContext('2d');
+
+    let deadliftChart = new Chart(dChart, {
+        type: 'pie',
+        data: {
+            labels: ['More', 'Less'],
+            datasets:[{
+                label: 'Weight',
+                data:[{{ deadlift_percent }}, {{ deadlift_vs_ee }}],
+                backgroundColor: ['rgba(201, 42, 42, 0.6)', 'rgba(20, 20, 223, 0.6)'],
+            }],
+        },
+        options: {}
+    });
+</script>
+{% endblock content %}
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

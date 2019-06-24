@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+      <div class="row justify-content-center">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+          <div id="loading" class="d-none">
+		<div class="row"
+		<div class='card col m-2'>
+		<div class='card-body text-center'>
+			<span class="spinner-border spinner-border"></span>
+		  </div>
+		</div>
+		</div>
+          <div id='submit'>
+            <h5 class="card-title">General Reports</h5>
+            <form method="POST">
+            <div class="form-group">
+            <div class="custom-button-style pr-4 mt-1">
+              <div class='dropdown'>
+			<button class='btn btn-outline-dark dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Pick Weight Class</button>
+			<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+				<a class='dropdown-item' href='83_report.html' onclick="loading()">83 kg (USAPL)</a>
+				<a class='dropdown-item' href='105_report.html' onclick="loading()">105 kg (USAPL)</a>
+				<a class='dropdown-item' href='shw_report.html' onclick="loading()">SHW (USAPL)</a>
+			</div>
+			</div>
+			</div>
+			</div>
+            <div class="form-group">
+            <div class="custom-button-style mt-1">
+            <div class='dropdown'>
+			<button class='btn btn-outline-dark dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Pick Federation</button>
+			<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+			<a class='dropdown-item' href='usapl_report.html' onclick="loading()">USAPL</a>
+			<a class='dropdown-item' href='uspa_report.html' onclick="loading()">USPA</a>	
+			</div>
+			</div>
+		</div>
+		</div>
+          </form>
+        </div>
+    	</div>
+    	</div>
+          <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+            <div class="card-body">
+              <h5 class="card-title">General Reports - Details</h5>
+              <p class='card-text'>Use the dropdown buttons to pick a federation or a weight class and generate a report about the weight lifted by that federation or weight class.  There are currently only a couple weight classes and federations available, more will be added soon!</p> 
+
+              <a href="/instructions" class="text-dark">Click here for instructions and example data</a>  
+            </div>
+            </div>
+        </div>
+{% endblock %}

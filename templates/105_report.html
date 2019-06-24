@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class='row'>
+<div class = 'card col m-2'>
+	<div class='card-body text-center'>
+		<h3 class='card-title'>Details on the 105 kg Weight Class in the USAPL</h3>
+		<p>These charts show the total number of times a weight was lifted in a sactioned USAPL meet by a 105 kg lifter</p>
+	</div>
+</div>
+</div>
+<div class='row justify-content-center'>
+	<div class='card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2'>
+		<div class='card-body'>
+			<h3 class='card-title'>Squat</h3>
+			<canvas id="sChart" width="100" height="100"></canvas>
+		</div>
+		</div>
+		<div class='card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2'>
+		<div class='card-body'>
+			<h3 class='card-title'>Bench</h3>
+			<canvas id="bChart" width="100" height="100"></canvas>
+		</div>
+		</div>
+		<div class='card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2'>
+		<div class='card-body'>
+			<h3 class='card-title'>Deadlift</h3>
+			<canvas id="dChart" width="100" height="100"></canvas>
+		</div>
+		</div>
+</div>
+<script>
+	let sChart = document.getElementById('sChart').getContext('2d');
+	let squat = new Chart(sChart, {
+		type: 'bar',
+		data: {
+			labels: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+			datasets:[{
+				label: 'Total Number',
+				data:[{{ s_300 }}, {{ s_400 }}, {{ s_500 }} ,{{ s_600 }}, {{ s_700 }}, {{ s_800 }}, {{ s_900 }}, {{ s_1000  }}],
+				backgroundColor: ['rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6'],
+			}],
+		},
+		options: {}
+	});
+
+	let bChart = document.getElementById('bChart').getContext('2d');
+	let bench = new Chart(bChart, {
+		type: 'bar',
+		data: {
+			labels: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+			datasets:[{
+				label: 'Total Number',
+				data:[{{ b_300 }}, {{ b_400 }} ,{{ b_500 }}, {{ b_600 }}, {{ b_700 }}],
+				backgroundColor: ['rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6'],
+			}],
+		},
+		options: {}
+	});
+
+	let dChart = document.getElementById('dChart').getContext('2d');
+	let deadlift = new Chart(dChart, {
+		type: 'bar',
+		data: {
+			labels: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+			datasets:[{
+				label: 'Total Number',
+				data:[{{ d_300 }}, {{ d_400 }}, {{ d_500 }} ,{{ d_600 }}, {{ d_700 }}, {{ d_800 }}, {{ d_900 }}, {{ d_1000  }}],
+				backgroundColor: ['rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6','rgba(201, 42, 42, 0.6'],
+			}],
+		},
+		options: {}
+	});	
+</script>
+{% endblock %}

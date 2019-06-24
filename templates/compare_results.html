@@ -1,0 +1,277 @@
+{% extends "layout.html" %}
+    {% block content %}
+    
+      <div class="row">
+        <div class="card col m-2">
+          <h3 class="card-title text-center pt-3">Results Comparing {{ name1 }} and {{ name2 }}</h3>
+          <h5 class="card-text text-center p-3">First Lets Look At Absolute Strength:</h5>
+        </div>
+      </div>
+
+        <div class="row justify-content-center">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_best_s" width="100" height="100"></canvas>
+          </div>
+        </div>
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_best_b" width="100" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+       <div class="row justify-content-center">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_best_d" width="100" height="100"></canvas>
+          </div>
+        </div>
+          <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_best_t" width="100" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="card col m-2">
+          <h3 class="card-title text-center pt-3">Results Comparing {{ name1 }} and {{ name2 }}</h3>
+          <h5 class="card-text text-center p-3">Now Lets Look At Relative Strength:</h5>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_rel_s" width="100" height="100"></canvas>
+          </div>
+        </div>
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_rel_b" width="100" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+       <div class="row justify-content-center">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_rel_d" width="100" height="100"></canvas>
+          </div>
+        </div>
+          <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card-body">
+            <canvas id="compare_rel_t" width="100" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+
+        <script>
+  let compare_best_s = document.getElementById('compare_best_s').getContext('2d');
+  let sChart = new Chart(compare_best_s, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ squat1 }}, {{ squat2 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg)'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+
+  let compare_best_b = document.getElementById('compare_best_b').getContext('2d');
+  let bChart = new Chart(compare_best_b, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ bench1 }}, {{ bench2 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg)'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+
+  let compare_best_d = document.getElementById('compare_best_d').getContext('2d');
+  let dChart = new Chart(compare_best_d, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ deadlift1 }}, {{ deadlift2 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg)'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+
+    let compare_best_t = document.getElementById('compare_best_t').getContext('2d');
+  let tChart = new Chart(compare_best_t, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ total1 }}, {{ total2 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg)'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+
+    let compare_rel_s = document.getElementById('compare_rel_s').getContext('2d');
+  let srChart = new Chart(compare_rel_s, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ squat_bw1 }}, {{ squat_bw2 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg) / BW'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+
+  let compare_rel_b = document.getElementById('compare_rel_b').getContext('2d');
+  let brChart = new Chart(compare_rel_b, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ bench_bw1 }}, {{ bench_bw2 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg) / BW'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+
+  let compare_rel_d = document.getElementById('compare_rel_d').getContext('2d');
+  let drChart = new Chart(compare_rel_d, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ deadlift_bw1 }}, {{ deadlift_bw2 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg) / BW'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+
+    let compare_rel_t = document.getElementById('compare_rel_t').getContext('2d');
+  let trChart = new Chart(compare_rel_t, {
+    type: 'bar',
+    data: {
+      labels: ['{{ name1 }}', '{{ name2 }}'],
+      datasets:[{
+        label: 'Weight (In Kg)',
+        data:[{{ total_bw1 }}, {{ total_bw1 }}],
+        backgroundColor: ['rgba(188,66,80, 0.3)','rgba(96,96,204, 0.3)']
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+          display: true,
+          labelString: 'Weight (In kg) / BW'
+        }
+        }]
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+</script>
+
+{% endblock content %}
