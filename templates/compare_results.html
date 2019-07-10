@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
     {% block content %}
     
-      <div class="row">
+      <div class="row animated slideInDown">
         <div class="card col m-2">
           <h3 class="card-title text-center pt-3">Results Comparing {{ name1 }} and {{ name2 }}</h3>
           <h5 class="card-text text-center p-3">First Lets Look At Absolute Strength:</h5>
@@ -9,55 +9,55 @@
       </div>
 
         <div class="row justify-content-center">
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInLeft">
           <div class="card-body">
             <canvas id="compare_best_s" width="100" height="100"></canvas>
           </div>
         </div>
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInRight">
           <div class="card-body">
             <canvas id="compare_best_b" width="100" height="100"></canvas>
           </div>
         </div>
       </div>
        <div class="row justify-content-center">
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInLeft">
           <div class="card-body">
             <canvas id="compare_best_d" width="100" height="100"></canvas>
           </div>
         </div>
-          <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInRight">
           <div class="card-body">
             <canvas id="compare_best_t" width="100" height="100"></canvas>
           </div>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row animated slideInDown">
         <div class="card col m-2">
           <h3 class="card-title text-center pt-3">Results Comparing {{ name1 }} and {{ name2 }}</h3>
           <h5 class="card-text text-center p-3">Now Lets Look At Relative Strength:</h5>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInLeft">
           <div class="card-body">
             <canvas id="compare_rel_s" width="100" height="100"></canvas>
           </div>
         </div>
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInRight">
           <div class="card-body">
             <canvas id="compare_rel_b" width="100" height="100"></canvas>
           </div>
         </div>
       </div>
        <div class="row justify-content-center">
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInLeft">
           <div class="card-body">
             <canvas id="compare_rel_d" width="100" height="100"></canvas>
           </div>
         </div>
-          <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+          <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInRight">
           <div class="card-body">
             <canvas id="compare_rel_t" width="100" height="100"></canvas>
           </div>

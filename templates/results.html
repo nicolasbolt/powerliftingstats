@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
       <div class="row justify-content-center">
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInLeft">
           <div class="card-body">
             <h3 class="card-title">Lifter Search Results</h3>
             <h5>Information Entered:</h5>
@@ -10,7 +10,7 @@
             <p>Weight Class: {{ wc }} kg</p>
         </div>
         </div>
-        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2">
+        <div class="card col-lg-5 col-md-5 col-sm-12 col-xs-12 m-2 animated slideInRight">
           <div class="card-body">
             <h3 class="card-title">Best Meet Search Results</h3>
             <h5>Data on Lifter:</h5>
@@ -21,14 +21,14 @@
         </div>
         </div>
         <div class="row justify-content-center">
-            <div class="card col-11 m-2">
+            <div class="card col-11 m-2 animated slideInUp">
             <div class="card-body text-center">
                 <h3 class="card-title">How Does {{ name }} Compare to Everyone Else?</h3>
                 <p class="text-center">Percent of Lifters Who Have Lifted More or Less Weight In The Same Federation and Weight Class</p>
             </div>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center animated slideInUp">
             <div class="card col-lg-3 col-md-12 col-sm-12 col-xs-12 m-2">
             <div class="card-body">
                 <h4 class="card-title">Squat</h4>
@@ -48,7 +48,7 @@
         </div>
         </div>
         </div>
-        <div class='row justify-content-center'>
+        <div class='row justify-content-center animated slideInUp'>
         <div class='card col-11 m-2'>
         <div class='card-body text-center'>
             <div id="submit">
